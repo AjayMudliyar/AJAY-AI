@@ -4,6 +4,7 @@ import CustomCursor from "@/components/CustomCursor";
 import Skills from "@/components/Skills";
 import Achievements from "@/components/Achievements";
 import HackathonGrid from "@/components/HackathonGrid";
+import Experience from "@/components/Experience";
 import AudioPlayer from "@/components/AudioPlayer";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <AudioPlayer />
       <ScrollyCanvas />
       <Achievements />
+      <Experience />
       <HackathonGrid />
       <Skills />
       <Projects />

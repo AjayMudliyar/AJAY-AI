@@ -28,11 +28,13 @@ export default function ScrollyCanvas() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d", { alpha: false });
     if (!ctx) return;
-
     if (canvas.width !== window.innerWidth || canvas.height !== window.innerHeight) {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
+
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
 
     const img = images[index];
     if (!img.width || !img.height) return;
@@ -146,7 +148,7 @@ export default function ScrollyCanvas() {
         </AnimatePresence>
 
         <div className="w-full h-full relative">
-          <canvas ref={canvasRef} className="w-full h-full block object-cover" />
+          <canvas ref={canvasRef} className="w-full h-full block object-cover will-change-[transform,opacity]" style={{ imageRendering: 'auto' }} />
         </div>
 
         {isLoaded && <Overlay scrollYProgress={scrollYProgress} />}
